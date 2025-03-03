@@ -14,6 +14,12 @@ plusOpr    "+"
 divOpr     "/"
 mulOpr     "*"
 subOpr     "-"
+modOpr     "mod"
+divEntOpr  "div"
+puissOpr   "\^"
+rcOpr      "rc"
+factOpr    "!"
+affectOpr  ":="
 COMMENT    "%".*
 SEMICOLON  ";"
 car        \'([^\\']|\\.)\'  
@@ -21,9 +27,9 @@ ent        -?{number}
 real       -?{number}(\.{number})?
 chaine     \"[^\"]*\"
 espace     " "
-tabulation \\t
-newline    \\n
-datatype   (ent|real|chaine|car|bool) 
+tabulation \t
+newline    \n
+datatype   (ent|real|sreel|dreel|chaine|car|bool) 
 ARRAYTYPE  tableau \[[0-9]+\.\.[0-9]+\](\[[0-9]+\.\.[0-9]+\])? de {datatype}
 
 %% 
@@ -44,6 +50,12 @@ ARRAYTYPE  tableau \[[0-9]+\.\.[0-9]+\](\[[0-9]+\.\.[0-9]+\])? de {datatype}
 {divOpr}      { printf("divOpr: %s\n", yytext); }
 {mulOpr}      { printf("mulOpr: %s\n", yytext); }
 {subOpr}      { printf("subOpr: %s\n", yytext); }
+{modOpr}      { printf("modOpr: %s\n", yytext); }
+{divEntOpr}   { printf("divEntOpr: %s\n", yytext); }
+{puissOpr}    { printf("puissOpr: %s\n", yytext); }
+{rcOpr}       { printf("rcOpr: %s\n", yytext); }
+{factOpr}     { printf("factOpr: %s\n", yytext); }
+{affectOpr}   { printf("affectOpr: %s\n", yytext); }
 .             { printf("Unknown token: %s\n", yytext); }
 
 %%
