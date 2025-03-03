@@ -5,9 +5,6 @@
 
 constbool  vrai|faux  
 keyword   alors|autre|ascii|bool|car|cas|chaine|chr|const|continuer|dbloc|de|debut|dfonct|div|dproc|drecord|dreel|ecrire|ecrirerc|ent|et|faire|fbloc|fcas|ffonct|fin|fixe|fonct|fproc|fpour|frecord|fsi|ftantque|jusqua|lire|lirerc|long|mod|modif|non|ou|parmis|partent|pas|pour|proc|programme|puiss|rc|record|repeter|retourner|sauter|si|sinon|sreel|struct|tableau|tantque|type|valabs|var|vaut|xou
-record     "->record"  
-drecord    "drecord"  
-frecord    "frecord"  
 number     [0-9]+ 
 id         [a-zA-Z][0-9a-zA-Z]*   
 plusOpr    "+"  
@@ -37,9 +34,8 @@ ARRAYTYPE  tableau \[[0-9]+\.\.[0-9]+\](\[[0-9]+\.\.[0-9]+\])? de {datatype}
 {newline}     { printf("newline: %s\n", yytext); }
 {espace}      { printf("espace: %s\n", yytext); }
 {constbool}   { printf("Boolean constant: %s\n", yytext); }
-{keyword}     { printf("Keyword: %s\n", yytext); }
-{record}      { printf("record: %s\n", yytext); }
 {id}          { printf("Identifier: %s\n", yytext); }
+{keyword}     { printf("Keyword: %s\n", yytext); }
 {SEMICOLON}   { printf("Semicolon: %s\n", yytext); }
 {COMMENT}     { printf("Comment: %s\n", yytext); }
 {car}         { printf("car: %s\n", yytext); }
